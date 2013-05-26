@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html class="no-js" xmlns="http://www.w3.org/1999/html">
+    <body>
+        <div data-role="page" id="product_detail">
+            <script type="text/javascript">
+                $('#product_detail').on('pageinit', function (event) {
+                    var api_call = new SuperTruper.ApiCall();
+                    api_call.search_product_by_barcode(create_product_detail);
+                });
+            </script>
+            <div data-role="header">
+                <h1>SuperTruper</h1>
+            </div><!-- /header -->
+            <div data-role="content">
+
+            </div><!-- /content -->
+            <div data-role="footer" data-id="foo1" data-position="fixed" data-tap-toggle="false">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="index.html">Buscar</a></li>
+                        <li><a href="listas.html">Listas</a></li>
+                        <li><a href="masahorro.html">+ Ahorro</a></li>
+                        <li><a href="truper.html">Truper</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+            </div><!-- /footer -->
+        </div><!-- /page -->
+    </body>
+</html>

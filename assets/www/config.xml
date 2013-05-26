@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.supertruper.phoneGapDemo"
+        version   = "0.1">
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>Supertruper</name>
+
+    <description>
+        Supertruper PhoneGap App
+    </description>
+
+    <author href="http://www.supertruper.com" email="support@supertruper.com">
+        Mario de Frutos
+    </author>
+
+    <gap:plugin name="ChildBrowser"/>
+    <gap:plugin name="BarcodeScanner"/>
+
+    <feature name="http://api.phonegap.com/1.0/device" />
+    <feature name="http://api.phonegap.com/1.0/camera"/>
+
+    <preference name="phonegap-version" value="2.5.0" />
+    <preference name="orientation"      value="portrait" />
+    <preference name="target-device"    value="universal" />
+    <preference name="fullscreen"       value="false" />
+    <preference name="android-installLocation" value="preferExternal" />
+
+</widget>
