@@ -41,33 +41,9 @@
         <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jarsigner-plugin</artifactId>
-                <version>1.2</version>
-                <executions>
-                    <execution>
-                        <id>signing</id>
-                        <goals>
-                            <goal>sign</goal>
-                            <goal>verify</goal>
-                        </goals>
-                        <phase>package</phase>
-                        <inherited>true</inherited>
-                        <configuration>
-                            <archive>${project.build.directory}/${project.artifactId}.apk</archive>
-                            <keystore>${sign.keystore}</keystore>
-                            <alias>${sign.alias}</alias>
-                            <storepass>${sign.storepass}</storepass>
-                            <keypass>${sign.keypass}</keypass>
-                            <verbose>true</verbose>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                 <artifactId>android-maven-plugin</artifactId>
-                <version>3.5.1</version>
+                <version>3.5.3</version>
                 <configuration>
                     <androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
                     <assetsDirectory>${project.basedir}/assets</assetsDirectory>
@@ -81,9 +57,6 @@
                         <avd>Nexus4</avd>
                         <wait>60000</wait>
                     </emulator>
-                    <sign>
-                        <debug>false</debug>
-                    </sign>
                     <proguard>
                         <skip>true</skip>
                         <jvmArguments>
@@ -91,20 +64,8 @@
                             <jvmArgument>-Xmx512m</jvmArgument>
                         </jvmArguments>
                     </proguard>
-                    <zipalign>
-                        <verbose>true</verbose>
-                        <skip>false</skip>
-                        <inputApk>${project.build.directory}/${project.artifactId}.apk</inputApk>
-                        <outputApk>${project.build.directory}/${project.artifactId}-aligned.apk</outputApk>
-                    </zipalign>
                 </configuration>
                 <extensions>true</extensions>
-                <executions>
-                    <execution>
-                        <id>alignApk</id>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
